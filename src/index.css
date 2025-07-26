@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262.1 83.3% 57.8%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    
+    /* Custom QueueAI Rainbow Gradients */
+    --rainbow-primary: linear-gradient(135deg, #8B5CF6 0%, #A855F7 25%, #C084FC 50%, #E879F9 75%, #F0ABFC 100%);
+    --rainbow-secondary: linear-gradient(135deg, #F59E0B 0%, #F97316 25%, #EF4444 50%, #EC4899 75%, #8B5CF6 100%);
+    --rainbow-accent: linear-gradient(135deg, #10B981 0%, #06B6D4 25%, #3B82F6 50%, #8B5CF6 75%, #EC4899 100%);
+    --rainbow-glow: linear-gradient(135deg, rgb(139 92 246 / 30%) 0%, rgb(245 158 11 / 30%) 50%, rgb(236 72 153 / 30%) 100%);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom Rainbow Gradient Classes */
+  .rainbow-gradient {
+    background: var(--rainbow-primary);
+  }
+
+  .rainbow-gradient-secondary {
+    background: var(--rainbow-secondary);
+  }
+
+  .rainbow-gradient-accent {
+    background: var(--rainbow-accent);
+  }
+
+  .rainbow-text {
+    background: var(--rainbow-primary);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .rainbow-border {
+    border-image: var(--rainbow-primary) 1;
+  }
+
+  .rainbow-glow {
+    box-shadow: 0 0 20px var(--rainbow-glow);
+  }
+
+  /* Animated Rainbow Gradient */
+  .rainbow-animated {
+    background: linear-gradient(270deg, #8B5CF6, #A855F7, #C084FC, #E879F9, #F0ABFC, #F59E0B, #F97316, #EF4444, #EC4899);
+    background-size: 1800% 1800%;
+    animation: rainbow-animation 8s ease infinite;
+  }
+
+  @keyframes rainbow-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Pulse Animation for Live Updates */
+  .pulse-rainbow {
+    animation: pulse-rainbow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-rainbow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgb(139 92 246 / 70%);
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgb(139 92 246 / 0%);
+    }
+  }
+}
